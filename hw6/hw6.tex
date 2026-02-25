@@ -1,0 +1,171 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amstext,amsthm,amssymb,amsxtra}
+\usepackage[top=1.5in, bottom=1.5in, left=1.25in, right=1.25in]	{geometry}
+%\usepackage[normalem]{ulem}
+\usepackage{txfonts} % pxfonts txfonts 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+ \usepackage{euler}   % better than the option below
+\usepackage{pdfsync}
+\usepackage{multicol}
+\newcommand{\ci}[1]{_{ {}_{\scriptstyle #1}}}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+
+\newcommand{\norm}[1]{\ensuremath{\left\|#1\right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}}
+\newcommand{\ip}[2]{\ensuremath{\left\langle#1,#2\right\rangle}}
+\newcommand{\p}{\ensuremath{\partial}}
+\newcommand{\pr}{\mathcal{P}}
+
+\newcommand{\pbar}{\ensuremath{\bar{\partial}}}
+\newcommand{\db}{\overline\partial}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\Sp}{\mathbb{S}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\mQ}{\mathcal{Q}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\scrH}{\mathcal{H}}
+\newcommand{\scrL}{\mathcal{L}}
+\newcommand{\td}{\widetilde\Delta}
+\newcommand{\pw}{\text{PW}}
+\newcommand{\esup}{\text{ess.sup}}
+\newcommand{\Tn}{\mathcal{T}_n}
+\newcommand{\Bn}{\mathbb{B}_n}
+\newcommand{\rt}{\mathcal{O}}
+\newcommand{\avg}[1]{\langle #1 \rangle}
+\newcommand{\one}{\mathbbm{1}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\grad}{\nabla}
+
+\newcommand{\La}{\langle }
+\newcommand{\Ra}{\rangle }
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\ran}{\operatorname{Ran}}
+\newcommand{\osc}{\operatorname{OSC}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\vf}{\varphi}
+\newcommand{\f}[2]{\ensuremath{\frac{#1}{#2}}}
+
+\newcommand{\kzp}{k_z^{(p,\alpha)}}
+\newcommand{\klp}{k_{\lambda_i}^{(p,\alpha)}}
+\newcommand{\TTp}{\mathcal{T}_p}
+\newcommand{\m}[1]{\mathcal{#1}}
+\newcommand{\md}{\mathcal{D}}
+\newcommand{\qan}{\abs{Q}^{\alpha/n}}
+\newcommand{\sbump}[2]{[[ #1,#2 ]]}
+\newcommand{\mbump}[2]{\lceil #1,#2 \rceil}
+\newcommand{\cbump}[2]{\lfloor #1,#2 \rfloor}
+
+\newcommand{\class}{Math 629 Spring 26}
+\newcommand{\term}{Fall 24}
+\newcommand{\examnum}{Homework \hwnum}
+\newcommand{\examdate}{\duedate}
+\newcommand{\timelimit}{75 Minutes}
+\newcommand{\vc}[3]{\langle #1,#2,#3\rangle}
+\newcommand*{\vv}[1]{\vec{\mkern0mu#1}}
+\newcommand{\bv}[1]{\boldsymbol{#1}}
+\newcommand{\hide}[1]{}
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+\newcommand{\vex}[1]{\boldsymbol{{\textbf{#1}}}}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+%\printanswers
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{Name: Mengxiang Jiang}\\
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+%
+
+ 
+
+\newcommand{\duedate}{02/23/2026 at 11:59pm}
+\newcommand\hwnum{6}
+
+Turn this assignment in on gradescope. All work must be neat and legible. Turn in 
+a ``final draft''. There should be nothing scratched out and your work should flow
+generally from left to right and top to bottom.
+
+(Yes - there are only two problems!)
+
+\begin{questions}
+\question 
+Find two non--trivial solutions to $x^2 - 60y^2 = 1$. (Use the 
+Chakravala algorithm; you don't need to show the arithmetic, but you
+do need to show the steps in the algorithm. That is, the 
+$(x,y,k)$ in each step).
+\\\\
+Since at each step of the algorithm, we want to minimize $|m^2-N|$,
+we start with $m=8$ since $8^2 = 64$ is closest to 60,
+ and get the first triple $(8,1,4)$. For our first improvement,
+ we need to find the next $m$ such that $\frac{x+ym}{k}$ is an integer, 
+ while still minimizing $|m^2-60|$. We see that $m \equiv 0 \mod 4$, and
+ again, we have $m=8$ is the closest to $\sqrt{60}$. Our next $x$ is 
+ \[
+  x_{new} = \frac{xm + 60y}{|k|} = \frac{8*8 + 60*1}{4} = 31.
+ \]
+ Our next $y$ is
+ \[
+  y_{new} = \frac{x + ym}{|k|} = \frac{8 + 1*8}{4} = 4.
+\]
+Our next $k$ is
+\[
+  k_{new} = \frac{m^2 - 60}{k} = \frac{64 - 60}{4} = 1.
+\]
+Thus, we have found one solution, namely $(31, 4, 1)$.
+Now, we can pick a different starting $m$ for our first step. 
+We can pick $m=7$ since $7^2 = 49$ is the second closest to 60, 
+and get the first triple $(7,1,-12)$. I will omit the arithmetic and just list
+the steps:
+\begin{center}
+  \begin{tabular}{|c|c|c|c|}
+    Best $m$ & $x_new$ & $y_new$ & $k_new$\\
+    \hline
+    5 & 7 & 1 & 2 \\
+    7 & 54 & 7 & -6 \\
+    6 & 124 & 16 & 4 \\
+    8 & 488 & 63 & 1\\
+  \end{tabular}
+\end{center}
+\newpage 
+\question 
+Using the algorithm with starting values $(10,1,8)$ find a solution to
+$x^2 - 92y^2 = 1$. Once you get to the point where $k=\pm4$, use some 
+reduction to get to a solution (note: I showed how to do this when 
+$k = \pm 2$; do something similar here). Show your work as I mentioned 
+above. 
+\begin{solutionorbox}[\stretch{1}]
+ 
+\end{solutionorbox}
+
+
+
+\end{questions}
+\end{document}
