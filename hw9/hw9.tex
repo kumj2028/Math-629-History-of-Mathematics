@@ -106,83 +106,45 @@
 
  
 
-\newcommand{\duedate}{02/23/2026 at 11:59pm}
-\newcommand\hwnum{6}
+\newcommand{\duedate}{03/23/2026 at 11:59pm}
+\newcommand\hwnum{9}
 
-Turn this assignment in on gradescope. All work must be neat and legible. Turn in 
+Turn this assginment in on gradescope. All work must be neat and legible. Turn in 
 a ``final draft''. There should be nothing scratched out and your work should flow
 generally from left to right and top to bottom.
 
-(Yes - there are only two problems!)
-
 \begin{questions}
 \question 
-Find two non--trivial solutions to $x^2 - 60y^2 = 1$. (Use the 
-Chakravala algorithm; you don't need to show the arithmetic, but you
-do need to show the steps in the algorithm. That is, the 
-$(x,y,k)$ in each step).
-\\\\
-Since at each step of the algorithm, we want to minimize $|m^2-N|$,
-we start with $m=8$ since $8^2 = 64$ is closest to 60,
- and get the first triple $(8,1,4)$. For our first improvement,
- we need to find the next $m$ such that $\frac{x+ym}{k}$ is an integer, 
- while still minimizing $|m^2-60|$. We see that $m \equiv 0 \mod 4$, and
- again, we have $m=8$ is the closest to $\sqrt{60}$. Our next $x$ is 
- \[
-  x_{new} = \frac{xm + 60y}{|k|} = \frac{8*8 + 60*1}{4} = 31.
- \]
- Our next $y$ is
- \[
-  y_{new} = \frac{x + ym}{|k|} = \frac{8 + 1*8}{4} = 4.
-\]
-Our next $k$ is
-\[
-  k_{new} = \frac{m^2 - 60}{k} = \frac{64 - 60}{4} = 1.
-\]
-Thus, we have found one solution, namely $(31, 4, 1)$.
-Now, we can take advantage of Brahmagupta's composition operator
- to find another solution.
-\[
-  (31, 4, 1) \oplus (31, 4, 1) = (31*31 + 60*4*4, 31*4 + 4*31, 1*1) 
-  = (1921, 248, 1).
-\]
+Show that Fermat's two methods of determining a maximum
+or minimum of a polynomial p(x) are both equivalent
+to solving $p'(x) = 0$.
+
 
 \newpage 
 \question 
-Using the algorithm with starting values $(10,1,8)$ find a solution to
-$x^2 - 92y^2 = 1$. Once you get to the point where $k=\pm4$, use some 
-reduction to get to a solution (note: I showed how to do this when 
-$k = \pm 2$; do something similar here). Show your work as I mentioned 
-above. 
-\\\\
-Instead of writing out all the arithmetic, I will list out each step in the
-following table.
-\begin{center}
-\begin{tabular}{c|c|c|c}
-  $x$ & $y$ & $k$ & $m$ \\
-  \hline
-  10 & 1 & 8 & 6 \\
-  19 & 2 & -7 & 8 \\
-  48 & 5 & 4 & -\\
-\end{tabular}
-\end{center}
-We will now try something similar to method used for $k = \pm 2$.
-First we use Brahmagupta's composition operator on the
-triple with itself:
-\[
-  (48, 5, 4) \oplus (48, 5, 4) = (48^2 + 92 \cdot 5^2, 2 \cdot 48 \cdot 5, 16)
-  = (4604, 480, 16).
-\]
-This gives us the equation
-\[
-  4604^2 - 92 \cdot 480^2 = 16.
-\]
-Notice that both $4604$ and $480$ are divisible by $4$, 
-so we can divide the entire equation by $16$ to get
-\[
-  1151^2 - 92 \cdot 120^2 = 1.
-\]
-Thus, we have found a solution, namely $(1151, 120, 1)$.
+Use one of Fermat’s methods to find the maximum of $bx - x^3$.
+\begin{solutionorbox}[\stretch{1}]
 
+\end{solutionorbox}
+
+\newpage 
+\question 
+Modify Fermat’s tangent method to be able to apply it to
+curves given by equations of the form $f (x, y) = c$. Begin
+by noting that if $(x + e, \bar{y})$ is a point on the tangent line near
+to $(x, y)$, then $\bar{y} = \frac{t+e}{t} y$. Then adequate 
+$f (x, y)$ to $f(x+e, \frac{t+e}{t}y)$. A
+\begin{solutionorbox}[\stretch{1}]
+
+\end{solutionorbox}
+
+
+\newpage 
+\question
+Show in modern notation, Fermat's method of finding the subtangent 
+$t$ to $y = f(x)$ determines $t$ as $t = f(x)/f'(x)$.
+\begin{solutionorbox}[\stretch{1}]
+
+\end{solutionorbox}
 \end{questions}
 \end{document}
