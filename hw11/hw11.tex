@@ -1,0 +1,204 @@
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath,amstext,amsthm,amssymb,amsxtra}
+\usepackage[top=1.5in, bottom=1.5in, left=1.25in, right=1.25in]{geometry}
+\usepackage{txfonts}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{euler}
+\usepackage{pdfsync}
+\usepackage{multicol}
+\newcommand{\ci}[1]{_{ {}_{\scriptstyle #1}}}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\newcommand{\norm}[1]{\ensuremath{\left\|#1\right\|}}
+\newcommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}}
+\newcommand{\ip}[2]{\ensuremath{\left\langle#1,#2\right\rangle}}
+\newcommand{\p}{\ensuremath{\partial}}
+\newcommand{\pr}{\mathcal{P}}
+
+\newcommand{\pbar}{\ensuremath{\bar{\partial}}}
+\newcommand{\db}{\overline\partial}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\Sp}{\mathbb{S}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\mQ}{\mathcal{Q}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\scrH}{\mathcal{H}}
+\newcommand{\scrL}{\mathcal{L}}
+\newcommand{\td}{\widetilde\Delta}
+\newcommand{\pw}{\text{PW}}
+\newcommand{\esup}{\text{ess.sup}}
+\newcommand{\Tn}{\mathcal{T}_n}
+\newcommand{\Bn}{\mathbb{B}_n}
+\newcommand{\rt}{\mathcal{O}}
+\newcommand{\avg}[1]{\langle #1 \rangle}
+\newcommand{\one}{\mathbbm{1}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\grad}{\nabla}
+
+\newcommand{\La}{\langle }
+\newcommand{\Ra}{\rangle }
+\newcommand{\rk}{\operatorname{rk}}
+\newcommand{\card}{\operatorname{card}}
+\newcommand{\ran}{\operatorname{Ran}}
+\newcommand{\osc}{\operatorname{OSC}}
+\newcommand{\im}{\operatorname{Im}}
+\newcommand{\re}{\operatorname{Re}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\vf}{\varphi}
+\newcommand{\f}[2]{\ensuremath{\frac{#1}{#2}}}
+
+\newcommand{\kzp}{k_z^{(p,\alpha)}}
+\newcommand{\klp}{k_{\lambda_i}^{(p,\alpha)}}
+\newcommand{\TTp}{\mathcal{T}_p}
+\newcommand{\m}[1]{\mathcal{#1}}
+\newcommand{\md}{\mathcal{D}}
+\newcommand{\qan}{\abs{Q}^{\alpha/n}}
+\newcommand{\sbump}[2]{[[ #1,#2 ]]}
+\newcommand{\mbump}[2]{\lceil #1,#2 \rceil}
+\newcommand{\cbump}[2]{\lfloor #1,#2 \rfloor}
+
+\newcommand{\class}{Math 629 Spring 26}
+\newcommand{\term}{Fall 24}
+\newcommand{\examnum}{Homework \hwnum}
+\newcommand{\examdate}{\duedate}
+\newcommand{\timelimit}{75 Minutes}
+\newcommand{\vc}[3]{\langle #1,#2,#3\rangle}
+\newcommand*{\vv}[1]{\vec{\mkern0mu#1}}
+\newcommand{\bv}[1]{\boldsymbol{#1}}
+\newcommand{\hide}[1]{}
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+\newcommand{\vex}[1]{\boldsymbol{{\textbf{#1}}}}
+
+\pagestyle{head}
+\firstpageheader{}{}{}
+\runningheader{\class}{\examnum\ - Page \thepage\ of \numpages}{\examdate}
+\runningheadrule
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+%\printanswers
+\begin{document}
+
+\noindent
+\begin{tabular*}{\textwidth}{l @{\extracolsep{\fill}} r @{\extracolsep{6pt}} l}
+\textbf{\class} & \textbf{Name: Mengxiang Jiang}\\
+\end{tabular*}\\
+\rule[2ex]{\textwidth}{2pt}
+
+\newcommand{\duedate}{04/6/2026 at 11:59pm}
+\newcommand\hwnum{10}
+
+Turn this assignment in on Gradescope. All work must be neat and legible. Turn in 
+a ``final draft''. There should be nothing scratched out and your work should flow
+generally from left to right and top to bottom.
+
+\begin{questions}
+
+
+\question
+Chapter 17 discusses Huygens's work on evolutes and involutes. Let the cycloid be
+given parametrically by
+\[
+x=a(t-\sin t), \qquad y=a(1-\cos t).
+\]
+Show that
+\[
+\frac{dy}{dx}=\frac{\sin t}{1-\cos t}=\cot\!\left(\frac t2\right).
+\]
+Then compute the element of arclength $ds$ in terms of $dt$.
+\\\\
+First, we compute $dx$ and $dy$:
+\[
+  dx = a(1-\cos t)dt, \qquad dy = a\sin t dt
+\]
+So,
+\[
+  \frac{dy}{dx} = \frac{a\sin t dt}{a(1-\cos t)dt} = \frac{\sin t}{1-\cos t} = \cot\left(\frac t2\right).
+\]
+For the element of arclength, we have
+\begin{align*}
+  ds &= \sqrt{(dx)^2 + (dy)^2} \\
+     &= \sqrt{(a(1-\cos t)dt)^2 + (a\sin t dt)^2} \\
+     &= a\sqrt{(1-\cos t)^2 + \sin^2 t} dt \\
+     &= a\sqrt{1 - 2\cos t + \cos^2 t + \sin^2 t} dt \\
+     &= a\sqrt{2 - 2\cos t} dt \\
+\end{align*}
+
+\newpage 
+\question
+Using modern techniques, put Johann Bernoulli's solution
+to the catenary problem,
+$dy = \frac{a}{\sqrt{x^2 - a^2}}dx$
+into a closed-form expression.
+\\\\
+The key identity that we will use is the following:
+\[
+  \frac{d}{dx} \cosh^{-1} x = \frac{1}{\sqrt{x^2 - 1}}.
+\]
+First, we can factor out $a$ from the denominator:
+\[
+  dy = \frac{a}{\sqrt{x^2 - a^2}} dx = \frac{a}{\sqrt{a^2(\frac{x^2}{a^2} - 1)}} dx = \frac{1}{\sqrt{\frac{x^2}{a^2} - 1}} dx.
+\]
+Now, we can make the substitution \( u = \frac{x}{a} \), which gives us \( du = \frac{1}{a} dx \) or \( dx = a du \). Substituting this into the integral, we get:
+\[
+  \int dy = \int \frac{1}{\sqrt{u^2 - 1}} a du = a \int \frac{1}{\sqrt{u^2 - 1}} du.
+\]
+Using the identity, we can integrate:
+\[
+  y = a \int \frac{1}{\sqrt{u^2 - 1}} du = a \cosh^{-1} u + C = a \cosh^{-1} \left( \frac{x}{a} \right) + C.
+\]
+
+
+\newpage 
+\question 
+Show why Lagrange's power series representation fails for
+the case $f(x) =e^{-1/x^2}$.
+\\\\
+Suppose for contradiction that $f(x) = e^{-1/x^2}$ has a power series representation around $x = 0$. This means we can write:
+\[
+  f(x) = \sum_{n=0}^{\infty} a_n x^n,
+\]
+where $a_n$ are the coefficients of the power series. To find these coefficients, we can use the formula:
+\[
+  a_n = \frac{f^{(n)}(0)}{n!}.
+\]
+Now, we need to compute the derivatives of $f(x)$ at $x = 0$.
+The first derivative is:
+\[
+  f'(x) = e^{-1/x^2} \cdot \frac{d}{dx}(-1/x^2) = e^{-1/x^2} \cdot \frac{2}{x^3}.
+\]
+In general the $n$-th derivative of $f(x)$ will be of the form:
+\[
+  f^{(n)}(x) = P_n\left(\frac{1}{x}\right) e^{-1/x^2},
+\]
+where $P_n(x)$ is some polynomial in $x$. As $x \to 0$, the term $e^{-1/x^2}$ approaches zero faster than any polynomial can grow. Therefore, we have:
+\[
+  \lim_{x \to 0} f^{(n)}(x) = 0.
+\]
+This means that all the coefficients $a_n$ in the power series representation will be zero:
+\[
+  a_n = \frac{f^{(n)}(0)}{n!} = 0.
+\]
+Thus, the power series representation of $f(x)$ around $x = 0$ is
+\[
+  f(x) = \sum_{n=0}^{\infty} 0 \cdot x^n = 0.
+\]
+However, this is a contradiction because $f(x) = e^{-1/x^2}$ is not identically zero for all $x$.
+\end{questions}
+\end{document}
